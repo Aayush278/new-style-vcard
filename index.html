@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta property="og:image" content="founder.jpg">
+    <meta name="theme-color" content="#0a0a0f">
+    <title>Shiv Malviya | Shivalay Infratech - Premium Real Estate Indore</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-glass: rgba(255, 255, 255, 0.05);
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --accent-blue: #3b82f6;
+            --accent-gold: #f59e0b;
+            --accent-purple: #8b5cf6;
+            --accent-emerald: #10b981;
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --text-muted: rgba(255, 255, 255, 0.4);
+            --glow-blue: rgba(59, 130, 246, 0.4);
+            --glow-gold: rgba(245, 158, 11, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            inset: 0;
+            background: var(--bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .preloader-ring {
+            width: 60px;
+            height: 60px;
+            border: 3px solid var(--border-glass);
+            border-top-color: var(--accent-gold);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Animated Gradient Background */
+        .gradient-bg {
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 80% 50% at 20% 40%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 40% at 80% 60%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse 50% 30% at 50% 80%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
+            animation: gradientShift 15s ease-in-out infinite alternate;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            100% {
+                opacity: 0.8;
+                transform: scale(1.1);
+            }
+        }
+
+        /* Floating Particles */
+        .particles {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.6;
+            }
+
+            90% {
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: translateY(-100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Main Container */
+        .vcard-container {
+            max-width: 480px;
+            margin: 0 auto;
+            min-height: 100vh;
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            padding: 60px 0 40px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .profile-image-wrapper {
+            position: relative;
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 24px;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--border-glass);
+            box-shadow:
+                0 0 40px var(--glow-gold),
+                0 20px 60px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow:
+                0 0 60px var(--glow-gold),
+                0 25px 70px rgba(0, 0, 0, 0.6);
+        }
+
+        .status-badge {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            width: 20px;
+            height: 20px;
+            background: var(--accent-emerald);
+            border: 3px solid var(--bg-primary);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5);
+            }
+
+            50% {
+                box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+            }
+        }
+
+        .profile-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            background: linear-gradient(135deg, #fff 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .profile-title {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .company-name {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        .company-name i {
+            font-size: 0.75rem;
+        }
+
+        /* Save Contact Button */
+        .save-contact-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            padding: 18px 24px;
+            margin-top: 30px;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #d97706 100%);
+            border: none;
+            border-radius: 16px;
+            color: #000;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px var(--glow-gold);
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .save-contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px var(--glow-gold);
+        }
+
+        .save-contact-btn:active {
+            transform: scale(0.98);
+        }
+
+        .save-contact-btn i {
+            font-size: 1.2rem;
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-top: 24px;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+
+        .action-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 20px 12px;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .action-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .action-btn:active {
+            transform: scale(0.95);
+        }
+
+        .action-btn i {
+            font-size: 1.4rem;
+        }
+
+        .action-btn.call i {
+            color: var(--accent-emerald);
+        }
+
+        .action-btn.whatsapp i {
+            color: #25d366;
+        }
+
+        .action-btn.email i {
+            color: var(--accent-blue);
+        }
+
+        .action-btn.location i {
+            color: var(--accent-gold);
+        }
+
+        .action-btn span {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Glass Card */
+        .glass-card {
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 24px;
+            padding: 24px;
+            backdrop-filter: blur(20px);
+            margin-top: 24px;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .card-icon {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+            border-radius: 12px;
+            font-size: 1.1rem;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px 16px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 16px;
+            border: 1px solid var(--border-glass);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: scale(1.02);
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #fcd34d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Projects Preview */
+        .projects-scroll {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            padding: 4px 0 12px;
+            margin: 0 -8px;
+            padding-left: 8px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .projects-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .project-mini {
+            flex: 0 0 200px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-glass);
+            transition: all 0.3s ease;
+        }
+
+        .project-mini:hover {
+            transform: scale(1.03);
+            border-color: var(--accent-gold);
+        }
+
+        .project-mini img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+        }
+
+        .project-mini-info {
+            padding: 14px;
+        }
+
+        .project-mini-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .project-mini-tag {
+            font-size: 0.7rem;
+            color: var(--accent-gold);
+            font-weight: 500;
+        }
+
+        /* Contact Info */
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 14px;
+            border: 1px solid var(--border-glass);
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--accent-blue);
+            transform: translateX(4px);
+        }
+
+        .contact-item i {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-glass);
+            border-radius: 10px;
+            color: var(--accent-blue);
+            font-size: 0.95rem;
+        }
+
+        .contact-item-text {
+            flex: 1;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .contact-item-text strong {
+            display: block;
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 24px;
+            animation: fadeInUp 0.8s ease-out 0.5s both;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 14px;
+            color: var(--text-secondary);
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            transform: translateY(-4px);
+        }
+
+        .social-link.website:hover {
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+        }
+
+        .social-link.whatsapp:hover {
+            border-color: #25d366;
+            color: #25d366;
+        }
+
+        .social-link.email:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        .social-link.map:hover {
+            border-color: #ef4444;
+            color: #ef4444;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 0 30px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .footer-tagline {
+            color: var(--accent-gold);
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .footer-credits {
+            padding-top: 16px;
+            border-top: 1px solid var(--border-glass);
+        }
+
+        .footer-credits a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .footer-credits a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Floating WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.6rem;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+            z-index: 100;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            animation: bounce 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 40px rgba(37, 211, 102, 0.5);
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        /* Map Section */
+        .map-wrapper {
+            margin-top: 16px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-glass);
+        }
+
+        .map-wrapper iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+            filter: grayscale(30%) contrast(1.1);
+            transition: filter 0.3s ease;
+        }
+
+        .map-wrapper:hover iframe {
+            filter: grayscale(0%) contrast(1);
+        }
+
+        /* Testimonials */
+        .testimonials-scroll {
+            display: flex;
+            gap: 14px;
+            overflow-x: auto;
+            padding: 4px 0 12px;
+            margin: 0 -8px;
+            padding-left: 8px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .testimonials-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .testimonial-mini {
+            flex: 0 0 280px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid var(--border-glass);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-mini:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-4px);
+        }
+
+        .testimonial-quote {
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            opacity: 0.6;
+        }
+
+        .testimonial-text {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-style: italic;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testimonial-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-gold);
+        }
+
+        .testimonial-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Booking Form */
+        .booking-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23ffffff40'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 20px;
+            padding-right: 40px;
+        }
+
+        .submit-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 24px;
+            background: linear-gradient(135deg, var(--accent-emerald) 0%, #059669 100%);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 4px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: scale(0.98);
+        }
+
+        .submit-btn i {
+            font-size: 1.1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 400px) {
+            .vcard-container {
+                padding: 16px;
+            }
+
+            .profile-name {
+                font-size: 1.7rem;
+            }
+
+            .quick-actions {
+                gap: 8px;
+            }
+
+            .action-btn {
+                padding: 16px 8px;
+            }
+
+            .stat-value {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .vcard-container {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-ring"></div>
+    </div>
+
+    <!-- Animated Background -->
+    <div class="gradient-bg"></div>
+
+    <!-- Floating Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Main V-Card Container -->
+    <div class="vcard-container">
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="profile-image-wrapper">
+                <img src="founder.jpg" alt="Shiv Malviya" class="profile-image">
+                <div class="status-badge" title="Available"></div>
+            </div>
+
+            <h1 class="profile-name">Shiv Malviya</h1>
+            <p class="profile-title">Founder & Owner</p>
+
+            <div class="company-name">
+                <i class="fas fa-building"></i>
+                Shivalay Infratech
+            </div>
+
+            <!-- Save Contact Button -->
+            <button class="save-contact-btn" onclick="saveContact()">
+                <i class="fas fa-user-plus"></i>
+                Save Contact
+            </button>
+
+            <!-- Quick Action Buttons -->
+            <div class="quick-actions">
+                <a href="tel:+919589524809" class="action-btn call">
+                    <i class="fas fa-phone"></i>
+                    <span>Call</span>
+                </a>
+                <a href="https://wa.me/919589524809" target="_blank" class="action-btn whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="mailto:shivalayinfratech@gmail.com" class="action-btn email">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email</span>
+                </a>
+                <a href="https://maps.google.com/?q=Shivalay+Infratech+Indore" target="_blank"
+                    class="action-btn location">
+                    <i class="fas fa-location-dot"></i>
+                    <span>Location</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Stats Card -->
+        <div class="glass-card">
+            <div class="card-header">
+                <div class="card-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3 class="card-title">Building Dreams Since 2012</h3>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-value">13+</span>
+                    <span class="stat-label">Years</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">25+</span>
+                    <span class="stat-label">Projects</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">500+</span>
+                    <span class="stat-label">Families</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">100%</span>
+                    <span class="stat-label">RERA Approved</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Preview -->
+        <div class="glass-card">
+            <div class="card-header">
+                <div class="card-icon">
+                    <i class="fas fa-city"></i>
+                </div>
+                <h3 class="card-title">Featured Projects</h3>
+            </div>
+            <div class="projects-scroll">
+                <div class="project-mini">
+                    <img src="Screenshot (124).png" alt="Shanti Vihar" loading="lazy">
+                    <div class="project-mini-info">
+                        <div class="project-mini-name">Shanti Vihar</div>
+                        <div class="project-mini-tag">Ujjain Road • Plots</div>
+                    </div>
+                </div>
+                <div class="project-mini">
+                    <img src="Screenshot (133).png" alt="Sankeshwar City" loading="lazy">
+                    <div class="project-mini-info">
+                        <div class="project-mini-name">Sankeshwar City</div>
+                        <div class="project-mini-tag">2-3 BHK Apartments</div>
+                    </div>
+                </div>
+                <div class="project-mini">
+                    <img src="Screenshot (132).png" alt="Orion Sky" loading="lazy">
+                    <div class="project-mini-info">
+                        <div class="project-mini-name">Orion Sky</div>
+                        <div class="project-mini-tag">1 BHK • Ready</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Details -->
+        <div class="glass-card">
+            <div class="card-header">
+                <div class="card-icon">
+                    <i class="fas fa-address-book"></i>
+                </div>
+                <h3 class="card-title">Contact Details</h3>
+            </div>
+            <div class="contact-list">
+                <a href="tel:+919589524809" class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div class="contact-item-text">
+                        <strong>Phone</strong>
+                        +91 95895 24809
+                    </div>
+                </a>
+                <a href="mailto:shivalayinfratech@gmail.com" class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div class="contact-item-text">
+                        <strong>Email</strong>
+                        shivalayinfratech@gmail.com
+                    </div>
+                </a>
+                <a href="https://maps.google.com/?q=Kanak+Smart+City+Indore" target="_blank" class="contact-item">
+                    <i class="fas fa-location-dot"></i>
+                    <div class="contact-item-text">
+                        <strong>Office</strong>
+                        Kanak Smart City, Near Hanuman Mandir, Indore
+                    </div>
+                </a>
+                <div class="contact-item" style="cursor: default;">
+                    <i class="fas fa-clock"></i>
+                    <div class="contact-item-text">
+                        <strong>Hours</strong>
+                        Mon - Sat: 10:00 AM - 7:00 PM
+                    </div>
+                </div>
+            </div>
+            <!-- Embedded Map -->
+            <div class="map-wrapper">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3678.1902903858618!2d75.85540057434397!3d22.795411824768998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39630392124f6da5%3A0x78db1e9236c2b55c!2sSHIVALAY%20INFRATECH!5e0!3m2!1sen!2sin!4v1766831385761!5m2!1sen!2sin"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
+        <!-- Customer Reviews -->
+        <div class="glass-card">
+            <div class="card-header">
+                <div class="card-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <h3 class="card-title">What Clients Say</h3>
+            </div>
+            <div class="testimonials-scroll">
+                <div class="testimonial-mini">
+                    <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+                    <p class="testimonial-text">My experience with Shivalay Infratech has been wonderful. The dealing
+                        was very clear and honest. Highly recommended!</p>
+                    <div class="testimonial-author">
+                        <img src="https://ui-avatars.com/api/?name=Chetna+Rajput&background=f59e0b&color=000&size=80"
+                            alt="Chetna" class="testimonial-avatar">
+                        <span class="testimonial-name">Chetna Rajput</span>
+                    </div>
+                </div>
+                <div class="testimonial-mini">
+                    <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+                    <p class="testimonial-text">The atmosphere here is very good. Team works honestly and understands
+                        customer needs. Very trustworthy company!</p>
+                    <div class="testimonial-author">
+                        <img src="https://ui-avatars.com/api/?name=Gaurav+Singh&background=3b82f6&color=fff&size=80"
+                            alt="Gaurav" class="testimonial-avatar">
+                        <span class="testimonial-name">Gaurav Singh</span>
+                    </div>
+                </div>
+                <div class="testimonial-mini">
+                    <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+                    <p class="testimonial-text">Property quality and location both excellent. What was promised was
+                        delivered. Very good company! 👍</p>
+                    <div class="testimonial-author">
+                        <img src="https://ui-avatars.com/api/?name=Rajkumari+Singh&background=8b5cf6&color=fff&size=80"
+                            alt="Rajkumari" class="testimonial-avatar">
+                        <span class="testimonial-name">Rajkumari Singh</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Book Appointment -->
+        <div class="glass-card">
+            <div class="card-header">
+                <div class="card-icon"
+                    style="background: linear-gradient(135deg, var(--accent-emerald) 0%, #059669 100%);">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <h3 class="card-title">Book Property Visit</h3>
+            </div>
+            <form class="booking-form" id="bookingForm">
+                <input type="text" class="form-input" placeholder="Your Name" name="name" required>
+                <input type="tel" class="form-input" placeholder="Mobile Number" name="phone" pattern="[0-9]{10}"
+                    required>
+                <select class="form-input form-select" name="property" required>
+                    <option value="">Select Property Type</option>
+                    <option value="1 BHK Apartment">1 BHK Apartment</option>
+                    <option value="2 BHK Apartment">2 BHK Apartment</option>
+                    <option value="3 BHK Apartment">3 BHK Apartment</option>
+                    <option value="Villa">Independent Villa</option>
+                    <option value="Plot">Residential Plot</option>
+                    <option value="Commercial">Commercial Space</option>
+                </select>
+                <input type="text" class="form-input" placeholder="Budget (Optional)" name="budget">
+                <button type="submit" class="submit-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    Book on WhatsApp
+                </button>
+            </form>
+        </div>
+
+        <!-- Social Links -->
+        <div class="social-links">
+            <a href="https://shivalayinfratech.com/" target="_blank" class="social-link website" title="Website">
+                <i class="fas fa-globe"></i>
+            </a>
+            <a href="https://wa.me/919589524809" target="_blank" class="social-link whatsapp" title="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="mailto:shivalayinfratech@gmail.com" class="social-link email" title="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://maps.google.com/?q=Shivalay+Infratech+Indore" target="_blank" class="social-link map"
+                title="Location">
+                <i class="fas fa-map-marker-alt"></i>
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-logo">Shivalay Infratech</div>
+            <div class="footer-tagline">100% RERA Approved Projects</div>
+            <div class="footer-credits">
+                Made by <a href="https://raweditt.com" target="_blank">Raweditt</a> × <a href="https://semicolon.online"
+                    target="_blank">Semicolon</a>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/919589524809?text=Hello%20Shiv%20Sir,%20I'm%20interested%20in%20Shivalay%20Infratech%20properties"
+        target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const particleCount = 30;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (15 + Math.random() * 15) + 's';
+                particle.style.width = (2 + Math.random() * 4) + 'px';
+                particle.style.height = particle.style.width;
+                container.appendChild(particle);
+            }
+        }
+
+        // Save contact as VCF
+        function saveContact() {
+            const vCardData = `BEGIN:VCARD
+VERSION:3.0
+N:Malviya;Shiv;;;
+FN:Shiv Malviya
+ORG:Shivalay Infratech
+TITLE:Founder & Owner
+TEL;TYPE=CELL:+919589524809
+TEL;TYPE=WORK:+919691244851
+EMAIL:shivalayinfratech@gmail.com
+URL:https://shivalayinfratech.com
+ADR;TYPE=WORK:;;Kanak Smart City, Near Hanuman Mandir;Indore;Madhya Pradesh;;India
+NOTE:Premium Real Estate Developer - Building Dreams Since 2012 | 100% RERA Approved Projects
+END:VCARD`;
+
+            const blob = new Blob([vCardData], { type: 'text/vcard' });
+            const url = URL.createObjectURL(blob);
+
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'Shiv_Malviya_Shivalay_Infratech.vcf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+        }
+
+        // Hide preloader
+        window.addEventListener('load', function () {
+            setTimeout(() => {
+                document.getElementById('preloader').classList.add('hidden');
+            }, 500);
+        });
+
+        // Initialize particles
+        createParticles();
+
+        // Booking form handler
+        document.getElementById('bookingForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = this.name.value;
+            const phone = this.phone.value;
+            const property = this.property.value;
+            const budget = this.budget.value || 'Not specified';
+
+            const message = `🏠 *Property Visit Request*%0A%0A👤 Name: ${name}%0A📱 Phone: ${phone}%0A🏡 Property: ${property}%0A💰 Budget: ${budget}%0A%0A_Sent from Shivalay V-Card_`;
+
+            window.open(`https://wa.me/919589524809?text=${message}`, '_blank');
+        });
+    </script>
+</body>
+
+</html>
